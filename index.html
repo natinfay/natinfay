@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>嗨，我的爱人</title>
+  <title>我们的照片 - 滑动查看</title>
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/lightbox.css">
   <style>
     body {
       font-family: 'Helvetica Neue', sans-serif;
@@ -11,88 +14,62 @@
       margin: 0;
       padding: 0;
       color: #333;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      background-color: #ffe4ec;
-      padding: 30px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      color: #d63384;
-    }
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.2em;
-      color: #555;
-    }
-    .hero {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
     }
     .section {
       padding: 20px;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
     }
-    .section h2 {
-      color: #d63384;
-      border-bottom: 2px solid #ffd6e8;
-      padding-bottom: 5px;
-    }
-    .timeline ul {
-      list-style: none;
-      padding: 0;
-    }
-    .timeline li {
-      margin-bottom: 10px;
-    }
-    .gallery img {
+    .swiper-container {
       width: 100%;
-      max-width: 100%;
-      margin-bottom: 10px;
-      border-radius: 8px;
+      padding-bottom: 30px;
     }
-    video {
+    .swiper-slide {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide img {
       width: 100%;
-      margin-top: 20px;
+      height: auto;
+      max-width: 300px;
+      border-radius: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>嗨，我的爱人</h1>
-    <p></p>
-  </header>
-  <img src="hero.jpg" class="hero" alt="封面图片" />
-  
-  <section class="section">
-    <h2>我们的故事</h2>
-    <p>亲爱的殷子恩小朋友：<br>今天，你三十岁了！生日快乐！<br>宇宙因你而更加丰富，世界因你而更加美好，我因为你而一度更加期待明天。<br></p>
-  </section>
 
-  <section class="section timeline">
-    <h2>我们的重要时刻</h2>
-    <ul>
-      <li>2024.08.26</li>
+<section class="section">
+  <h2>我们的照片</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="photos/photo1.jpg" data-lightbox="gallery"><img src="photos/photo1.jpg" alt="photo1"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 2.jpg" data-lightbox="gallery"><img src="photos/photo 2.jpg" alt="photo2"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 3.jpg" data-lightbox="gallery"><img src="photos/photo 3.jpg" alt="photo3"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 4.jpg" data-lightbox="gallery"><img src="photos/photo 4.jpg" alt="photo4"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 5.jpg" data-lightbox="gallery"><img src="photos/photo 5.jpg" alt="photo5"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 6.jpg" data-lightbox="gallery"><img src="photos/photo 6.jpg" alt="photo6"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 7.jpg" data-lightbox="gallery"><img src="photos/photo 7.jpg" alt="photo7"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 8.jpg" data-lightbox="gallery"><img src="photos/photo 8.jpg" alt="photo8"></a></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
 
-    </ul>
-  </section>
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/lightbox.js"></script>
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
 
-  <section class="section gallery">
-    <h2>我们的照片</h2>
-    <img src="photos/photo1.jpg" alt="我们的照片" />
-  </section>
-
-  <section class="section">
-    <h2>我们的视频</h2>
-    <video controls>
-      <source src="travel.mp4" type="video/mp4">
-      您的浏览器不支持视频播放。
-    </video>
-  </section>
 </body>
 </html>
