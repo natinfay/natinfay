@@ -58,10 +58,36 @@
       border-radius: 10px;
       cursor: pointer;
     }
-    video {
-      width: 100%;
-      margin-top: 20px;
-      border-radius: 10px;
+    .message-section {
+      background-color: #ffd6e8;
+      padding: 20px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .message-section h2 {
+      color: #d63384;
+      font-size: 1.8em;
+    }
+    .message-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+    .message-section textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+    .message-section button {
+      padding: 10px;
+      background-color: #d63384;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
     }
   </style>
 </head>
@@ -97,6 +123,14 @@
     <source src="travel.mp4" type="video/mp4">
     您的浏览器不支持视频播放。
   </video>
+</section>
+
+<section class="section message-section">
+  <h2>对宇宙说出你想说的话吧</h2>
+  <form action="https://formspree.io/f/mblokjql" method="POST">
+    <textarea name="message" rows="4" placeholder="写下你想说的话..." required></textarea>
+    <button type="submit">发送</button>
+  </form>
 </section>
 
 <script src="js/swiper-bundle.min.js"></script>
