@@ -10,8 +10,18 @@
   <style>
     body { font-family: 'Helvetica Neue', sans-serif; background-color: #fff8f5; margin: 0; padding: 0; color: #333; line-height: 1.6; }
     .section { padding: 20px; max-width: 1000px; margin: auto; }
+    header { text-align: center; padding: 30px 20px; background-color: #ffe4ec; }
+    header h1 { margin: 0; font-size: 2.5em; color: #d63384; }
+    header p { font-size: 1.2em; color: #555; }
+    .hero { width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; }
     .swiper-container { width: 100%; padding-bottom: 30px; }
+    .swiper-slide { display: flex; justify-content: center; align-items: center; }
     .swiper-slide img { width: 100%; max-width: 300px; height: auto; border-radius: 10px; cursor: pointer; }
+    .message-section { background-color: #ffd6e8; padding: 20px; text-align: center; margin-top: 30px; }
+    .message-section h2 { color: #d63384; font-size: 1.8em; }
+    .message-section form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: auto; }
+    .message-section textarea { padding: 10px; border-radius: 5px; border: 1px solid #ccc; resize: vertical; }
+    .message-section button { padding: 10px; background-color: #d63384; color: #fff; border: none; cursor: pointer; border-radius: 5px; }
   </style>
 </head>
 <body>
@@ -22,20 +32,40 @@
 </header>
 
 <section class="section">
+  <img src="hero.jpg" class="hero" alt="封面图">
+</section>
+
+<section class="section">
   <h2>嗨，帅哥</h2>
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="photos/photo 1.jpg" alt="photo 1"></div>
-      <div class="swiper-slide"><img src="photos/photo 2.jpg" alt="photo 2"></div>
-      <div class="swiper-slide"><img src="photos/photo 3.jpg" alt="photo 3"></div>
-      <div class="swiper-slide"><img src="photos/photo 4.jpg" alt="photo 4"></div>
-      <div class="swiper-slide"><img src="photos/photo 5.jpg" alt="photo 5"></div>
-      <div class="swiper-slide"><img src="photos/photo 6.jpg" alt="photo 6"></div>
-      <div class="swiper-slide"><img src="photos/photo 7.jpg" alt="photo 7"></div>
-      <div class="swiper-slide"><img src="photos/photo 8.jpg" alt="photo 8"></div>
+      <div class="swiper-slide"><a href="photos/photo 1.jpg" data-lightbox="gallery"><img src="photos/photo 1.jpg" alt="photo 1"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 2.jpg" data-lightbox="gallery"><img src="photos/photo 2.jpg" alt="photo 2"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 3.jpg" data-lightbox="gallery"><img src="photos/photo 3.jpg" alt="photo 3"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 4.jpg" data-lightbox="gallery"><img src="photos/photo 4.jpg" alt="photo 4"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 5.jpg" data-lightbox="gallery"><img src="photos/photo 5.jpg" alt="photo 5"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 6.jpg" data-lightbox="gallery"><img src="photos/photo 6.jpg" alt="photo 6"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 7.jpg" data-lightbox="gallery"><img src="photos/photo 7.jpg" alt="photo 7"></a></div>
+      <div class="swiper-slide"><a href="photos/photo 8.jpg" data-lightbox="gallery"><img src="photos/photo 8.jpg" alt="photo 8"></a></div>
     </div>
     <div class="swiper-pagination"></div>
   </div>
+</section>
+
+<section class="section">
+  <h2>我们的共同记忆</h2>
+  <video controls>
+    <source src="travel.mp4" type="video/mp4">
+    您的浏览器不支持视频播放。
+  </video>
+</section>
+
+<section class="section message-section">
+  <h2>对宇宙说出你想说的话吧</h2>
+  <form action="https://formspree.io/f/mblokjql" method="POST">
+    <textarea name="message" rows="4" placeholder="写下你想说的话..." required></textarea>
+    <button type="submit">发送</button>
+  </form>
 </section>
 
 <script src="js/swiper-custom.js"></script>
