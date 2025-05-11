@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>我们的故事</title>
+  <title>正在加载标题...</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/lightbox-custom.css">
   <style>
@@ -93,12 +93,10 @@
 </head>
 <body>
 
-<div class="hero-section">
-  我们的故事
-</div>
+<div class="hero-section" id="hero-title">正在加载标题...</div>
 
 <header>
-  <h1>我们的故事</h1>
+  <h1 id="page-title">正在加载标题...</h1>
 </header>
 
 <div class="subtitle" id="subtitle">正在加载副标题...</div>
@@ -164,7 +162,13 @@
       .then(response => response.text())
       .then(data => {
         const lines = data.split('\n');
-        document.getElementById('subtitle').textContent = lines[1] || "副标题未找到";
+        const title = lines[0] || "我们的故事";
+        const subtitle = lines[1] || "副标题未找到";
+
+        document.title = title;
+        document.getElementById('page-title').textContent = title;
+        document.getElementById('hero-title').textContent = title;
+        document.getElementById('subtitle').textContent = subtitle;
       });
 
     fetch('index.txt')
