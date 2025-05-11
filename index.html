@@ -48,37 +48,49 @@
       border-radius: 10px;
       margin-bottom: 20px;
     }
-    .swiper-container {
-      width: 100%;
-      padding-bottom: 30px;
+    .message-section {
+      background-color: #ffd6e8;
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
     }
-    .swiper-slide {
+    .message-section h2 {
+      color: #d63384;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+    .message-section form {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
     }
-    .swiper-slide img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
+    .message-section textarea {
+      padding: 15px;
       border-radius: 10px;
+      border: 1px solid #d63384;
+      background-color: #fff;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+    .message-section textarea:focus {
+      border-color: #d63384;
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+    }
+    .message-section button {
+      padding: 12px;
+      background-color: #d63384;
+      color: #fff;
+      border: none;
       cursor: pointer;
-    }
-    .swiper-pagination {
-      position: relative;
-      bottom: 10px;
-    }
-    .video-container {
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto 20px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .video-container video {
-      width: 100%;
       border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+    .message-section button:hover {
+      background-color: #b81f68;
     }
   </style>
 </head>
@@ -96,33 +108,6 @@
   <img src="hero.jpg" class="hero" alt="封面图">
 </section>
 
-<section class="section">
-  <h2>写给你的话</h2>
-  <div class="story-content" id="story-content">
-    正在加载内容...
-  </div>
-</section>
-
-<section class="section">
-  <h2>嗨，帅哥</h2>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><a href="photos/photo 1.jpg" data-lightbox="gallery"><img src="photos/photo 1.jpg" alt="photo 1"></a></div><div class="swiper-slide"><a href="photos/photo 2.jpg" data-lightbox="gallery"><img src="photos/photo 2.jpg" alt="photo 2"></a></div><div class="swiper-slide"><a href="photos/photo 3.jpg" data-lightbox="gallery"><img src="photos/photo 3.jpg" alt="photo 3"></a></div><div class="swiper-slide"><a href="photos/photo 4.jpg" data-lightbox="gallery"><img src="photos/photo 4.jpg" alt="photo 4"></a></div><div class="swiper-slide"><a href="photos/photo 5.jpg" data-lightbox="gallery"><img src="photos/photo 5.jpg" alt="photo 5"></a></div><div class="swiper-slide"><a href="photos/photo 6.jpg" data-lightbox="gallery"><img src="photos/photo 6.jpg" alt="photo 6"></a></div><div class="swiper-slide"><a href="photos/photo 7.jpg" data-lightbox="gallery"><img src="photos/photo 7.jpg" alt="photo 7"></a></div><div class="swiper-slide"><a href="photos/photo 8.jpg" data-lightbox="gallery"><img src="photos/photo 8.jpg" alt="photo 8"></a></div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>我们的共同记忆</h2>
-  <div class="video-container">
-    <video controls>
-      <source src="travel.mp4" type="video/mp4">
-      您的浏览器不支持视频播放。
-    </video>
-  </div>
-</section>
-
 <section class="section message-section">
   <h2>对宇宙说出你想说的话吧</h2>
   <form action="https://formspree.io/f/mblokjql" method="POST">
@@ -135,20 +120,6 @@
 <script src="js/swiper-custom.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const swiper = new Swiper('.swiper-container', {
-      slidesPerView: 3,
-      spaceBetween: 10,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-    });
-
     // Load subtitle from title.txt
     fetch('title.txt')
       .then(response => response.text())
@@ -159,16 +130,6 @@
       })
       .catch(() => {
         document.getElementById('subtitle-content').textContent = "无法加载副标题，请稍后重试。";
-      });
-
-    // Load content from index.txt
-    fetch('index.txt')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('story-content').innerHTML = data.replace(/\n/g, '<br>');
-      })
-      .catch(() => {
-        document.getElementById('story-content').innerHTML = "无法加载内容，请稍后重试。";
       });
   });
 </script>
