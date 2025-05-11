@@ -15,45 +15,46 @@
       padding: 0;
       color: #333;
     }
+    header {
+      text-align: center;
+      padding: 20px 10px;
+      background-color: #ffe4ec;
+    }
     .hero-section {
       width: 100%;
       height: 300px;
       background-size: cover;
       background-position: center;
-      background-image: url('hero.jpg');
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      font-size: 2.5em;
-      font-weight: bold;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2em;
+      color: #555;
+      margin: 10px 0 20px;
+      padding: 10px;
+      background-color: #ffe4ec;
+      border-radius: 10px;
     }
     .section {
       padding: 20px;
       max-width: 1000px;
       margin: auto;
     }
-    header {
-      text-align: center;
-      padding: 20px 10px;
-      background-color: #ffe4ec;
-    }
-    .subtitle {
-      text-align: center;
-      font-size: 1.2em;
-      color: #555;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      padding: 10px;
-      background-color: #ffe4ec;
-      border-radius: 10px;
+    .swiper-container {
+      width: 100%;
+      padding-bottom: 50px;
     }
     .swiper-slide img {
       width: 100%;
       max-width: 300px;
       border-radius: 10px;
       cursor: pointer;
+    }
+    .swiper-pagination {
+      position: relative;
+      bottom: 0;
+      text-align: center;
     }
     .video-container {
       width: 100%;
@@ -65,7 +66,7 @@
       border-radius: 10px;
     }
     .message-section {
-      background-color: linear-gradient(135deg, #ffe4ec, #ffd6e8);
+      background-color: #ffe4ec;
       padding: 30px;
       text-align: center;
       margin-top: 30px;
@@ -93,13 +94,12 @@
 </head>
 <body>
 
-<div class="hero-section" id="hero-title">正在加载标题...</div>
-
 <header>
   <h1 id="page-title">正在加载标题...</h1>
+  <div class="subtitle" id="subtitle">正在加载副标题...</div>
 </header>
 
-<div class="subtitle" id="subtitle">正在加载副标题...</div>
+<div class="hero-section" id="hero-section" style="background-image: url('hero.jpg');"></div>
 
 <section class="section">
   <h2>写给你的话</h2>
@@ -167,7 +167,6 @@
 
         document.title = title;
         document.getElementById('page-title').textContent = title;
-        document.getElementById('hero-title').textContent = title;
         document.getElementById('subtitle').textContent = subtitle;
       });
 
