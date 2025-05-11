@@ -15,6 +15,20 @@
       padding: 0;
       color: #333;
     }
+    .hero-section {
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-image: url('hero.jpg');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
     .section {
       padding: 20px;
       max-width: 1000px;
@@ -22,13 +36,8 @@
     }
     header {
       text-align: center;
-      padding: 30px 20px;
+      padding: 20px 10px;
       background-color: #ffe4ec;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      color: #d63384;
     }
     .subtitle {
       text-align: center;
@@ -40,13 +49,16 @@
       background-color: #ffe4ec;
       border-radius: 10px;
     }
+    .swiper-slide img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
     .video-container {
       width: 100%;
       max-width: 500px;
       margin: 20px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     .video-container video {
       width: 100%;
@@ -60,18 +72,13 @@
       border-radius: 20px;
       box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
     }
-    .message-section form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-      margin: auto;
-    }
     .message-section textarea {
       padding: 15px;
       border-radius: 15px;
       border: 1px solid #d63384;
       background-color: #fff;
+      width: 100%;
+      max-width: 500px;
     }
     .message-section button {
       padding: 10px 20px;
@@ -82,15 +89,13 @@
       border-radius: 15px;
       font-weight: bold;
     }
-    .swiper-slide img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
+
+<div class="hero-section">
+  我们的故事
+</div>
 
 <header>
   <h1>我们的故事</h1>
