@@ -20,25 +20,73 @@
       max-width: 1000px;
       margin: auto;
     }
-    .swiper-container {
-      width: 100%;
-      padding-bottom: 30px;
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #ffe4ec;
     }
-    .swiper-slide {
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #d63384;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2em;
+      color: #555;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #ffe4ec;
+      border-radius: 10px;
+    }
+    .video-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+    .video-container video {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .message-section {
+      background-color: linear-gradient(135deg, #ffe4ec, #ffd6e8);
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .message-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    .message-section textarea {
+      padding: 15px;
+      border-radius: 15px;
+      border: 1px solid #d63384;
+      background-color: #fff;
+    }
+    .message-section button {
+      padding: 10px 20px;
+      background-color: #d63384;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 15px;
+      font-weight: bold;
+    }
     .swiper-slide img {
       width: 100%;
       max-width: 300px;
-      height: auto;
       border-radius: 10px;
       cursor: pointer;
-    }
-    .swiper-pagination {
-      position: relative;
-      bottom: 10px;
     }
   </style>
 </head>
@@ -47,6 +95,13 @@
 <header>
   <h1>我们的故事</h1>
 </header>
+
+<div class="subtitle" id="subtitle">正在加载副标题...</div>
+
+<section class="section">
+  <h2>写给你的话</h2>
+  <div id="story-content">正在加载内容...</div>
+</section>
 
 <section class="section">
   <h2>嗨，帅哥</h2>
@@ -65,6 +120,24 @@
   </div>
 </section>
 
+<section class="section">
+  <h2>我们的共同记忆</h2>
+  <div class="video-container">
+    <video controls>
+      <source src="travel.mp4" type="video/mp4">
+      您的浏览器不支持视频播放。
+    </video>
+  </div>
+</section>
+
+<section class="section message-section">
+  <h2>对宇宙说出你想说的话吧</h2>
+  <form action="https://formspree.io/f/mblokjql" method="POST">
+    <textarea name="message" rows="4" placeholder="写下你想说的话..." required></textarea>
+    <button type="submit">发送</button>
+  </form>
+</section>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -81,6 +154,19 @@
         disableOnInteraction: false,
       },
     });
+
+    fetch('title.txt')
+      .then(response => response.text())
+      .then(data => {
+        const lines = data.split('\n');
+        document.getElementById('subtitle').textContent = lines[1] || "副标题未找到";
+      });
+
+    fetch('index.txt')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('story-content').innerHTML = data.replace(/\n/g, '<br>');
+      });
   });
 </script>
 
