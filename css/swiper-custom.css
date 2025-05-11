@@ -1,4 +1,4 @@
-/* Swiper CSS */
+/* Swiper Custom CSS */
 .swiper-container { width: 100%; overflow: hidden; }
 .swiper-slide { display: flex; justify-content: center; align-items: center; }
 .swiper-slide img { width: 100%; max-width: 300px; border-radius: 10px; cursor: pointer; }
