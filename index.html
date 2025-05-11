@@ -34,6 +34,7 @@
     header p {
       font-size: 1.2em;
       color: #555;
+      margin-top: 10px;
     }
     .hero {
       width: 100%;
@@ -58,36 +59,9 @@
       border-radius: 10px;
       cursor: pointer;
     }
-    .message-section {
-      background-color: #ffd6e8;
-      padding: 20px;
-      text-align: center;
-      margin-top: 30px;
-    }
-    .message-section h2 {
-      color: #d63384;
-      font-size: 1.8em;
-    }
-    .message-section form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 500px;
-      margin: auto;
-    }
-    .message-section textarea {
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      resize: vertical;
-    }
-    .message-section button {
-      padding: 10px;
-      background-color: #d63384;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
+    .swiper-pagination {
+      position: relative;
+      bottom: 10px;
     }
   </style>
 </head>
@@ -100,11 +74,6 @@
 
 <section class="section">
   <img src="hero.jpg" class="hero" alt="封面图">
-</section>
-
-<section class="section">
-  <h2>写给你的话</h2>
-  <p>亲爱的殷子恩小朋友：<br><br>今天，你三十岁了！生日快乐！<br>你听，宇宙似乎奏响了交响乐,<br>是在庆祝这一天。<br>宇宙随着你的诞生而更加丰富！<br><br>世界是主观的，<br>宇宙就住在你的胸腔里，<br>你的存在,就是意义。<br><br>今天是我们相识的第286天，<br>我感到荣幸，<br>可以陪你迎接30岁的到来。<br><br>很高兴认识你，<br>感谢你赏光我原本并不引以为傲的人生，<br>因为你，我更喜欢抬头看星星了，<br>因为你，我开始在每天睡前期待次日的到来。<br><br>亲爱的子恩，<br>除非别无选择，否则不要退缩。<br>好好生活，好好照顾自己，<br>保持你的童心，继续做一个光彩夺目的人，<br>继续追逐你的梦想，成为你想成为的样子，<br>然后，然后，<br>休息的时候想一想一直在想念你的我。<br><br>祝福你的一生拥有无数的爱。<br>我爱你。<br><br>*谨以此网站纪念我对你的爱，希望留下美好的回忆</p>
 </section>
 
 <section class="section">
@@ -134,15 +103,21 @@
 </section>
 
 <script src="js/swiper-custom.js"></script>
-<script src="js/lightbox-custom.js"></script>
 <script>
-  const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 3,
-    spaceBetween: 10,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
+  document.addEventListener("DOMContentLoaded", function() {
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
   });
 </script>
 
